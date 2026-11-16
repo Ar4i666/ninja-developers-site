@@ -153,7 +153,7 @@ section{padding:72px 0;display:grid;gap:36px}
 .world.space{--c:var(--moon)}.world.ocean{--c:var(--water)}
 .steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s;list-style:none;margin:0;padding:0}
 .steps li{counter-increment:s;padding:24px;border-radius:20px;background:var(--panel);border:1px solid var(--line);display:grid;gap:6px;color:var(--dim)}
-.steps li::before{content:counter(s);font:600 1.6rem var(--display);color:var(--laser)}
+.steps li::before{content:counter(s);font:600 1.6rem var(--display);color:var(--c,var(--laser))}
 .steps b{color:var(--fg)}
 .gallery{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 16px;margin:0 -4px;scrollbar-width:thin}
 .gallery img{flex:none;width:200px;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:20px;border:1px solid var(--line);scroll-snap-align:start}
@@ -161,7 +161,7 @@ section{padding:72px 0;display:grid;gap:36px}
 html[data-l=ru] .gallery[lang=ru],html[data-l=en] .gallery[lang=en],html[data-l=kk] .gallery[lang=kk]{display:flex}
 .facts{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .fact{padding:22px;border-radius:20px;background:var(--panel);border:1px solid var(--line);display:grid;gap:4px}
-.fact b{font:600 1.5rem var(--display);color:var(--laser)}
+.fact b{font:600 1.5rem var(--display);color:var(--c,var(--laser))}
 .fact span{color:var(--dim);font-size:.95rem}
 
 /* footer */
@@ -174,6 +174,92 @@ footer a{color:var(--dim);text-decoration:none}footer a:hover{color:var(--fg)}
 /* reveal on scroll (only when JS runs) */
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
 .js .rv.in{opacity:1;transform:none}
+
+/* ===== Game pages: each page wears its game's colour and mood (body class g-<game>) =====
+   To add a game: copy one g-* block, set --c/--c2 and the sky, and put a .mood layer after .sky. */
+.mood{position:absolute;top:0;left:0;width:100%;height:820px;overflow:hidden;z-index:-1;pointer-events:none}
+.g-game .hero{min-height:72vh}
+.g-game .sh h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;margin-top:14px;background:linear-gradient(90deg,var(--c),var(--c2))}
+.g-game .steps li,.g-game .fact,.g-game .world{border-color:color-mix(in srgb,var(--c) 22%,var(--line))}
+.g-game .eyebrow{color:var(--c2)}
+.g-game .hero h1{background:linear-gradient(90deg,var(--fg) 30%,var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* LaserScape: night lab, neon grid like the game board, a beam that bounces off mirrors */
+.g-laser{--c:var(--laser);--c2:#b28cff}
+.g-laser .sky{background:radial-gradient(44rem 30rem at 80% 0%,rgba(95,243,255,.16),transparent 70%),radial-gradient(34rem 26rem at 0% 60%,rgba(178,140,255,.12),transparent 70%),#04060c}
+.g-laser .sky::after{background-image:linear-gradient(rgba(95,243,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(95,243,255,.06) 1px,transparent 1px);background-size:56px 56px}
+.beam svg{width:100%;height:100%}
+.beam .ray{fill:none;stroke:var(--laser);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px var(--laser)) drop-shadow(0 0 16px var(--laser));
+  stroke-dasharray:2400;stroke-dashoffset:2400;animation:ray 7s cubic-bezier(.5,0,.3,1) infinite}
+.beam .ray.r2{stroke:#b28cff;filter:drop-shadow(0 0 6px #b28cff);animation-delay:3.5s;opacity:.7}
+.beam .mir{stroke:#e8f6ff;stroke-width:5;stroke-linecap:round;opacity:.75}
+.beam .src{fill:#0d1528;stroke:var(--laser);stroke-width:3}
+.beam .rcv{fill:none;stroke:var(--laser);stroke-width:3;animation:rcv 7s ease infinite}
+.beam .rcv.r2{stroke:#b28cff;animation-delay:3.5s}
+@keyframes ray{0%{stroke-dashoffset:2400;opacity:1}45%{stroke-dashoffset:0;opacity:1}80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes rcv{0%,40%{fill:transparent;filter:none}48%,80%{fill:currentColor;filter:drop-shadow(0 0 14px var(--laser))}100%{fill:transparent}}
+.beam .rcv{color:var(--laser)}.beam .rcv.r2{color:#b28cff}
+.g-laser .phone.p2{box-shadow:0 30px 70px -18px rgba(0,0,0,.9),0 0 60px -10px var(--laser)}
+
+/* WaterScape: deep teal water, light ripples, rising bubbles and waves */
+.g-water{--c:#29b6f6;--c2:#7ee8c4;--bg:#071a23;--panel:#0d2a36;--panel2:#123644;--line:#1d4a5a}
+.g-water .sky{background:radial-gradient(50rem 30rem at 70% -10%,rgba(126,232,196,.16),transparent 70%),radial-gradient(40rem 30rem at 10% 30%,rgba(41,182,246,.18),transparent 70%),linear-gradient(180deg,#0e3a4a 0%,#0a2430 45%,#071a23 100%)}
+.g-water .sky::after{background-image:radial-gradient(rgba(180,240,255,.10) 1px,transparent 1.6px);background-size:34px 34px}
+.water-mood .caustic{position:absolute;inset:-20%;background:radial-gradient(closest-side,rgba(126,232,196,.10),transparent),radial-gradient(closest-side,rgba(41,182,246,.10),transparent);
+  background-size:380px 300px,520px 420px;background-position:0 0,140px 90px;animation:caustic 18s ease-in-out infinite alternate;filter:blur(8px)}
+.water-mood{-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
+.water-mood .waves{bottom:12%}
+@keyframes caustic{to{background-position:200px 120px,-80px 260px;transform:scale(1.08)}}
+.bub{position:absolute;bottom:-30px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.75),rgba(126,232,196,.20) 40%,rgba(41,182,246,.08) 70%);border:1px solid rgba(180,240,255,.35);
+  animation:bub var(--d) linear infinite;animation-delay:var(--dl)}
+@keyframes bub{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}50%{transform:translate(14px,-420px)}100%{transform:translate(-10px,-860px);opacity:0}}
+.waves{position:absolute;left:0;right:0;bottom:0;height:120px}
+.waves svg{position:absolute;bottom:0;width:200%;height:100%;animation:wave 14s linear infinite}
+.waves svg.w2{animation-duration:22s;animation-direction:reverse;opacity:.55}
+@keyframes wave{to{transform:translateX(-50%)}}
+.g-water .btn.primary{color:#03202b}
+.g-water .phone{border-color:#2a6577}
+.world.garden{--c:#7ccf6a}.world.desert{--c:#f2b25a}.world.glacier{--c:#9fe3ff}.world.volcano{--c:#ff7a4d}
+
+/* Ninja Hunter: night over Kuroyama's castle, blood moon, bats, embers, pixel headings like the game */
+.g-hunter{--c:#e0455f;--c2:#ffcf5a;--bg:#07050b;--panel:#120c18;--panel2:#1a1122;--line:#2c1d36}
+.g-hunter .sky{background:radial-gradient(40rem 30rem at 50% 110%,rgba(155,27,48,.20),transparent 70%),linear-gradient(180deg,#0d0812 0%,#07050b 60%)}
+.g-hunter .sky::after{background-image:radial-gradient(rgba(255,220,230,.35) 1px,transparent 1.3px),radial-gradient(rgba(255,220,230,.18) 1px,transparent 1.2px);background-size:140px 120px,90px 70px;background-position:0 0,40px 30px}
+.g-hunter h1,.g-hunter h2,.g-hunter h3{font-family:'Pixelify Sans',var(--display);letter-spacing:.01em}
+.g-hunter .hero h1{font-size:clamp(2.6rem,7vw,5rem);background:linear-gradient(180deg,#fff 40%,#ff8f9f);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 0 18px rgba(224,69,95,.45))}
+.g-hunter .btn.primary{color:#fff;border-radius:6px;box-shadow:0 0 0 2px #0007 inset,0 8px 30px -8px var(--c)}
+.g-hunter .btn{border-radius:6px}
+.g-hunter .steps li,.g-hunter .fact,.g-hunter .chap{border-radius:8px}
+.g-hunter .phone{border-radius:18px;border-color:#3a2440}.g-hunter .phone img{border-radius:12px;object-position:50% 30%}
+.g-hunter .gallery img{border-radius:12px}
+.hunt-mood .moon{position:absolute;top:84px;right:3%;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle at 38% 36%,#ff9a8a 0%,#e0455f 38%,#9b1b30 70%,#5a0f1e 100%);box-shadow:0 0 80px 10px rgba(224,69,95,.45),0 0 200px 40px rgba(155,27,48,.25);animation:moon 8s ease-in-out infinite}
+.hunt-mood .moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 62% 58%,rgba(0,0,0,.18) 0 9%,transparent 10%),radial-gradient(circle at 30% 64%,rgba(0,0,0,.14) 0 6%,transparent 7%),radial-gradient(circle at 58% 28%,rgba(0,0,0,.12) 0 5%,transparent 6%)}
+@keyframes moon{50%{box-shadow:0 0 100px 16px rgba(224,69,95,.55),0 0 240px 60px rgba(155,27,48,.3)}}
+.hunt-mood .castle{position:absolute;bottom:0;left:-4%;width:min(1000px,80%);height:auto;fill:#040307;opacity:.95}
+.hunt-mood .castle .win{fill:#ffcf5a;animation:win 3s steps(2) infinite}
+.hunt-mood .castle .win:nth-child(2n){animation-delay:-1.3s}
+@keyframes win{50%{fill:#7a4a10}}
+.bat{position:absolute;top:var(--y);left:-60px;width:var(--w);height:auto;fill:#0a0610;filter:drop-shadow(0 0 2px rgba(224,69,95,.5));animation:batfly var(--d) linear infinite;animation-delay:var(--dl)}
+.bat path{animation:flap .28s steps(2) infinite;transform-origin:50% 40%}
+@keyframes batfly{0%{transform:translate(0,0)}25%{transform:translate(30vw,-30px)}50%{transform:translate(60vw,20px)}75%{transform:translate(90vw,-20px)}100%{transform:translate(115vw,10px)}}
+@keyframes flap{50%{transform:scaleY(.35)}}
+.ember{position:absolute;bottom:-10px;left:var(--x);width:4px;height:4px;background:#ff7a4d;box-shadow:0 0 6px #ff7a4d;animation:ember var(--d) linear infinite;animation-delay:var(--dl)}
+@keyframes ember{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(40px,-700px);opacity:0}}
+.chapters{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.chap{padding:22px 20px;background:var(--panel);border:1px solid var(--line);display:grid;gap:6px;position:relative;overflow:hidden}
+.chap .n{font:600 .75rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--c2)}
+.chap h3{font-size:1.25rem}
+.chap p{color:var(--dim);font-size:.95rem}
+.chap .boss{margin-top:6px;font-size:.85rem;font-weight:700;color:var(--c)}
+.chap.final{background:linear-gradient(160deg,#2a0d18,var(--panel) 70%);border-color:#5a1f30}
+@media (max-width:860px){.hunt-mood .moon{width:150px;height:150px;top:90px;right:6%}}
+
+/* game cards on the home page carry a hint of the same mood */
+.game.laser .phones::before{content:"";position:absolute;left:-10%;right:-10%;top:58%;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--laser),transparent);filter:drop-shadow(0 0 8px var(--laser));animation:sweep 4s ease-in-out infinite;z-index:0}
+@keyframes sweep{0%,100%{transform:translateY(-120px) scaleX(.3);opacity:0}30%,70%{opacity:1;transform:translateY(0) scaleX(1)}}
+.game.water .bub{bottom:-20px}
 
 /* language switch: elements carry lang="ru|en|kk"; only the chosen one shows */
 html[data-l=ru] [lang=en]:not(html),html[data-l=ru] [lang=kk]:not(html),
@@ -193,4 +279,5 @@ html[data-l=kk] [lang=ru]:not(html),html[data-l=kk] [lang=en]:not(html){display:
   section{padding:52px 0}
 }
 @media (max-width:560px){nav.top .hide-s{display:none}.values{grid-template-columns:1fr}.brand span{display:none}}
+@media (max-width:860px){.mood{height:640px}.beam{opacity:.45}.g-game .hero{min-height:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
