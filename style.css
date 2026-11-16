@@ -222,6 +222,40 @@ footer a{color:var(--dim);text-decoration:none}footer a:hover{color:var(--fg)}
 .g-water .phone{border-color:#2a6577}
 .world.garden{--c:#7ccf6a}.world.desert{--c:#f2b25a}.world.glacier{--c:#9fe3ff}.world.volcano{--c:#ff7a4d}
 
+/* Ninja Hunter: night over Kuroyama's castle, blood moon, bats, embers, pixel headings like the game */
+.g-hunter{--c:#e0455f;--c2:#ffcf5a;--bg:#07050b;--panel:#120c18;--panel2:#1a1122;--line:#2c1d36}
+.g-hunter .sky{background:radial-gradient(40rem 30rem at 50% 110%,rgba(155,27,48,.20),transparent 70%),linear-gradient(180deg,#0d0812 0%,#07050b 60%)}
+.g-hunter .sky::after{background-image:radial-gradient(rgba(255,220,230,.35) 1px,transparent 1.3px),radial-gradient(rgba(255,220,230,.18) 1px,transparent 1.2px);background-size:140px 120px,90px 70px;background-position:0 0,40px 30px}
+.g-hunter h1,.g-hunter h2,.g-hunter h3{font-family:'Pixelify Sans',var(--display);letter-spacing:.01em}
+.g-hunter .hero h1{font-size:clamp(2.6rem,7vw,5rem);background:linear-gradient(180deg,#fff 40%,#ff8f9f);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 0 18px rgba(224,69,95,.45))}
+.g-hunter .btn.primary{color:#fff;border-radius:6px;box-shadow:0 0 0 2px #0007 inset,0 8px 30px -8px var(--c)}
+.g-hunter .btn{border-radius:6px}
+.g-hunter .steps li,.g-hunter .fact,.g-hunter .chap{border-radius:8px}
+.g-hunter .phone{border-radius:18px;border-color:#3a2440}.g-hunter .phone img{border-radius:12px;object-position:50% 30%}
+.g-hunter .gallery img{border-radius:12px}
+.hunt-mood .moon{position:absolute;top:84px;right:3%;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle at 38% 36%,#ff9a8a 0%,#e0455f 38%,#9b1b30 70%,#5a0f1e 100%);box-shadow:0 0 80px 10px rgba(224,69,95,.45),0 0 200px 40px rgba(155,27,48,.25);animation:moon 8s ease-in-out infinite}
+.hunt-mood .moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 62% 58%,rgba(0,0,0,.18) 0 9%,transparent 10%),radial-gradient(circle at 30% 64%,rgba(0,0,0,.14) 0 6%,transparent 7%),radial-gradient(circle at 58% 28%,rgba(0,0,0,.12) 0 5%,transparent 6%)}
+@keyframes moon{50%{box-shadow:0 0 100px 16px rgba(224,69,95,.55),0 0 240px 60px rgba(155,27,48,.3)}}
+.hunt-mood .castle{position:absolute;bottom:0;left:-4%;width:min(1000px,80%);height:auto;fill:#040307;opacity:.95}
+.hunt-mood .castle .win{fill:#ffcf5a;animation:win 3s steps(2) infinite}
+.hunt-mood .castle .win:nth-child(2n){animation-delay:-1.3s}
+@keyframes win{50%{fill:#7a4a10}}
+.bat{position:absolute;top:var(--y);left:-60px;width:var(--w);height:auto;fill:#0a0610;filter:drop-shadow(0 0 2px rgba(224,69,95,.5));animation:batfly var(--d) linear infinite;animation-delay:var(--dl)}
+.bat path{animation:flap .28s steps(2) infinite;transform-origin:50% 40%}
+@keyframes batfly{0%{transform:translate(0,0)}25%{transform:translate(30vw,-30px)}50%{transform:translate(60vw,20px)}75%{transform:translate(90vw,-20px)}100%{transform:translate(115vw,10px)}}
+@keyframes flap{50%{transform:scaleY(.35)}}
+.ember{position:absolute;bottom:-10px;left:var(--x);width:4px;height:4px;background:#ff7a4d;box-shadow:0 0 6px #ff7a4d;animation:ember var(--d) linear infinite;animation-delay:var(--dl)}
+@keyframes ember{0%{transform:translate(0,0);opacity:0}10%{opacity:1}100%{transform:translate(40px,-700px);opacity:0}}
+.chapters{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.chap{padding:22px 20px;background:var(--panel);border:1px solid var(--line);display:grid;gap:6px;position:relative;overflow:hidden}
+.chap .n{font:600 .75rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--c2)}
+.chap h3{font-size:1.25rem}
+.chap p{color:var(--dim);font-size:.95rem}
+.chap .boss{margin-top:6px;font-size:.85rem;font-weight:700;color:var(--c)}
+.chap.final{background:linear-gradient(160deg,#2a0d18,var(--panel) 70%);border-color:#5a1f30}
+@media (max-width:860px){.hunt-mood .moon{width:150px;height:150px;top:90px;right:6%}}
+
 /* game cards on the home page carry a hint of the same mood */
 .game.laser .phones::before{content:"";position:absolute;left:-10%;right:-10%;top:58%;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--laser),transparent);filter:drop-shadow(0 0 8px var(--laser));animation:sweep 4s ease-in-out infinite;z-index:0}
 @keyframes sweep{0%,100%{transform:translateY(-120px) scaleX(.3);opacity:0}30%,70%{opacity:1;transform:translateY(0) scaleX(1)}}
