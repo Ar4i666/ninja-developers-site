@@ -1,0 +1,48 @@
+/* Ninja Developers site: the games' night palette, one dark look. */
+:root{--bg:#05070d;--panel:#0b1120;--line:#1c2a47;--fg:#dfe9ff;--dim:#8b9aba;--accent:#5ff3ff;--water:#1e8cff;
+  --display:'Unbounded',system-ui,sans-serif;--body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--body)}
+a{color:var(--accent)}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{max-width:68rem;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+header{border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font:600 .95rem var(--display);letter-spacing:.04em}
+.brand img{width:36px;height:36px}
+nav.top{margin-left:auto;display:flex;gap:18px;align-items:center;font-size:.9rem}
+nav.top a{color:var(--dim);text-decoration:none}nav.top a:hover{color:var(--fg)}
+.langs{display:flex;gap:4px}
+.langs button{background:none;border:1px solid var(--line);color:var(--dim);font:600 .75rem var(--body);padding:4px 8px;border-radius:6px;cursor:pointer}
+.langs button[aria-pressed=true]{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.8rem,5vw,3rem)}h2{font-size:1.4rem}h3{font-size:1.1rem}
+p{margin:0}
+.hero{padding:72px 0 56px;display:grid;gap:20px;justify-items:start}
+.hero .logo{width:120px;height:120px}
+.lead{color:var(--dim);font-size:1.1rem;max-width:40rem}
+section{padding:40px 0;border-top:1px solid var(--line);display:grid;gap:24px}
+.games{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px;grid-template-rows:auto auto 1fr auto}
+.card .head{display:flex;gap:14px;align-items:center}
+.card .head img{width:64px;height:64px;border-radius:14px}
+.tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tag.soon{color:var(--dim)}
+.card .shot{border-radius:10px;border:1px solid var(--line);aspect-ratio:9/16;object-fit:cover;width:100%;max-height:360px;object-position:top}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn[aria-disabled=true]{opacity:.5;pointer-events:none}
+.shots{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.shots img{border-radius:10px;border:1px solid var(--line)}
+.videos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.videos .empty{color:var(--dim);border:1px dashed var(--line);border-radius:12px;padding:24px}
+ul.facts{margin:0;padding-left:1.2em;display:grid;gap:6px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--dim);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px}
+/* language switch: elements carry lang="ru|en|kk"; only the chosen one shows */
+html[data-l=ru] [lang=en]:not(html),html[data-l=ru] [lang=kk]:not(html),
+html[data-l=en] [lang=ru]:not(html),html[data-l=en] [lang=kk]:not(html),
+html[data-l=kk] [lang=ru]:not(html),html[data-l=kk] [lang=en]:not(html){display:none!important}
+@media (max-width:560px){nav.top .hide-s{display:none}}
