@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" data-l="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Manrope:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="/style.css"><link rel="icon" href="/img/logo.svg" type="image/svg+xml">
-<title>LaserScape: Mirror Puzzle by Ninja Developers</title>
-<meta name="description" content="LaserScape: guide the laser with mirrors in 1016 levels across the Lab, Space and the Ocean. A puzzle game by Ninja Developers.">
-<meta property="og:title" content="LaserScape"><meta property="og:image" content="/img/og-laserscape.jpg">
-</head><body><header><div class="wrap bar"><a class="brand" href="/"><img src="/img/logo.svg" alt="">NINJA DEVELOPERS</a>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Manrope:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="/style.css"><link rel="icon" href="/img/logo.svg" type="image/svg+xml"><meta name="theme-color" content="#06080f">
+<script>document.documentElement.classList.add('js')</script>
+<title>LaserScape: a puzzle about light · Ninja Developers</title>
+<meta name="description" content="LaserScape: place mirrors, bounce the laser and light up every receiver. 1016 levels across the Lab, Space and the Ocean. Free, plays offline.">
+<meta property="og:title" content="LaserScape"><meta property="og:description" content="A puzzle about light by Ninja Developers."><meta property="og:image" content="https://ninja-developers.com/img/og-laserscape.jpg">
+</head><body><div class="sky"></div>
+<header><div class="wrap bar"><a class="brand" href="/"><svg viewBox="0 0 120 120" class="ninja" aria-hidden="true"><circle cx="60" cy="60" r="44" class="nh"/><path d="M18 52h84v20H18z" class="nb"/><path d="M98 58l18-10M98 66l20 4" class="nt"/><g class="eyes"><path d="M38 62l12-4M70 58l12 4" class="ne"/></g></svg><span>NINJA DEVELOPERS</span></a>
 <nav class="top"><a class="hide-s" href="/#games"><span lang="ru">Игры</span><span lang="en">Games</span><span lang="kk">Ойындар</span></a>
-<a class="hide-s" href="/#videos"><span lang="ru">Видео</span><span lang="en">Videos</span><span lang="kk">Бейне</span></a>
+<a class="hide-s" href="/#about"><span lang="ru">О нас</span><span lang="en">About</span><span lang="kk">Біз туралы</span></a>
 <a class="hide-s" href="/#contact"><span lang="ru">Контакты</span><span lang="en">Contact</span><span lang="kk">Байланыс</span></a>
 <div class="langs" role="group" aria-label="Language"><button data-l="kk">ҚАЗ</button><button data-l="ru">РУС</button><button data-l="en">ENG</button></div></nav></div></header>
 <main class="wrap">
-<div class="hero"><img class="logo" src="/img/laserscape-icon.png" alt="LaserScape icon" style="border-radius:24px">
-<h1>LaserScape</h1>
-<p class="lead" lang="ru">Головоломка про свет. Расставляй зеркала и делители, направляй лазер к приёмникам и зажигай их все. Чем меньше деталей ушло на решение, тем больше звёзд.</p>
-<p class="lead" lang="en">A puzzle about light. Place mirrors and splitters, guide the laser to the receivers and light them all up. The fewer pieces you use, the more stars you get.</p>
-<p class="lead" lang="kk">Жарық туралы басқатырғыш. Айналар мен бөлгіштерді қой, лазерді қабылдағыштарға бағытта да, бәрін жақ. Шешімге неғұрлым аз бөлшек кетсе, соғұрлым көп жұлдыз.</p>
-<div class="btns"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.arsen.lazerkanal" aria-disabled="true" data-play><span lang="ru">Скоро в Google Play</span><span lang="en">Coming soon to Google Play</span><span lang="kk">Жақында Google Play-де</span></a></div>
+<div class="hero"><div style="display:grid;gap:0;justify-items:start">
+<img src="/img/laserscape-icon.png" alt="LaserScape" style="width:84px;height:84px;border-radius:22px;margin-bottom:20px;box-shadow:0 12px 36px -10px var(--laser)">
+<span class="eyebrow" lang="ru">Головоломка про свет</span><span class="eyebrow" lang="en">A puzzle about light</span><span class="eyebrow" lang="kk">Жарық туралы басқатырғыш</span>
+<h1 style="margin-bottom:18px">LaserScape</h1>
+<p class="lead" lang="ru">Ставишь зеркало, луч отражается, и приёмники загораются один за другим. Сначала легко, потом интереснее. За решение меньшим числом деталей дают больше звёзд.</p><p class="lead" lang="en">Place a mirror, the beam bounces, and the receivers light up one by one. Easy at first, then more and more interesting. Solve it with fewer pieces to earn more stars.</p><p class="lead" lang="kk">Айнаны қоясың, сәуле шағылады, қабылдағыштар бірінен соң бірі жанады. Басында оңай, кейін қызығырақ. Аз бөлшекпен шешсең, көбірек жұлдыз аласың.</p>
+<div class="btns"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.arsen.lazerkanal" aria-disabled="true" data-play><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.5v19l10-9.5zM15.5 13.5l2.6 2.5-11 6.2zM15.5 10.5L7.1 1.8l11 6.2zM19.2 9l3 1.7c.9.5.9 2.1 0 2.6l-3 1.7-2.9-3z"/></svg><span lang="ru">Скоро в Google Play</span><span lang="en">Coming soon to Google Play</span><span lang="kk">Жақында Google Play-де</span></a></div>
 </div>
-<section><h2><span lang="ru">Три мира</span><span lang="en">Three worlds</span><span lang="kk">Үш әлем</span></h2>
-<ul class="facts" lang="ru"><li>Лаборатория: зеркала, делители, порталы, тревоги, линзы и цветные фильтры.</li><li>Космос: импульс летит клетка за клеткой, астероиды могут его разбить.</li><li>Океан: призма делит белый луч на красный, зелёный и синий, вертушки поворачиваются сами.</li></ul>
-<ul class="facts" lang="en"><li>Laboratory: mirrors, splitters, portals, alarms, lenses and colour filters.</li><li>Space: the pulse flies cell by cell, and asteroids can break it.</li><li>Ocean: a prism splits white light into red, green and blue, and spinners turn by themselves.</li></ul>
-<ul class="facts" lang="kk"><li>Зертхана: айналар, бөлгіштер, порталдар, дабылдар, линзалар және түсті сүзгілер.</li><li>Ғарыш: импульс тор көз бойынша ұшады, астероидтар оны сындыруы мүмкін.</li><li>Мұхит: призма ақ сәулені қызыл, жасыл және көк түске бөледі, айналмалар өздігінен бұрылады.</li></ul>
+<div class="phones" aria-hidden="true" style="--c:var(--laser)"><div class="phone p1"><img lang="ru" src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"><img lang="en" src="/img/ls-en-2_lab.webp" alt="" loading="lazy"><img lang="kk" src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"></div><div class="phone p2"><img lang="ru" src="/img/ls-ru-1_home.webp" alt="" loading="lazy"><img lang="en" src="/img/ls-en-1_home.webp" alt="" loading="lazy"><img lang="kk" src="/img/ls-ru-1_home.webp" alt="" loading="lazy"></div><div class="phone p3"><img lang="ru" src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"><img lang="en" src="/img/ls-en-4_ocean.webp" alt="" loading="lazy"><img lang="kk" src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"></div></div>
+</div>
+
+<section><div class="sh rv"><h2 lang="ru">Как играть</h2><h2 lang="en">How to play</h2><h2 lang="kk">Қалай ойнау керек</h2></div>
+<ol class="steps">
+<li class="rv"><span lang="ru"><b>Поставь зеркало.</b> Нажми на клетку, и луч отразится в другую сторону.</span><span lang="en"><b>Place a mirror.</b> Tap a cell and the beam bounces another way.</span><span lang="kk"><b>Айна қой.</b> Ұяшықты бас, сәуле басқа жаққа шағылады.</span></li>
+<li class="rv"><span lang="ru"><b>Зажги все приёмники.</b> Когда горят все, уровень пройден.</span><span lang="en"><b>Light every receiver.</b> When they all glow, the level is done.</span><span lang="kk"><b>Барлық қабылдағышты жақ.</b> Бәрі жанса, деңгей өтілді.</span></li>
+<li class="rv"><span lang="ru"><b>Собери три звезды.</b> Чем меньше деталей ушло, тем больше звёзд.</span><span lang="en"><b>Earn three stars.</b> The fewer pieces you use, the more stars you get.</span><span lang="kk"><b>Үш жұлдыз жина.</b> Бөлшек аз кетсе, жұлдыз көп.</span></li>
+</ol></section>
+
+<section><div class="sh rv"><h2 lang="ru">Три мира</h2><h2 lang="en">Three worlds</h2><h2 lang="kk">Үш әлем</h2><p lang="ru">В каждом мире свои фокусы, к которым нужно привыкнуть.</p><p lang="en">Every world has its own tricks to get used to.</p><p lang="kk">Әр әлемнің үйренуге тұратын өз айласы бар.</p></div>
+<div class="worlds">
+<div class="world rv"><img lang="ru" src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"><img lang="en" src="/img/ls-en-2_lab.webp" alt="" loading="lazy"><img lang="kk" src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"><div><h3 lang="ru">Лаборатория</h3><h3 lang="en">The Lab</h3><h3 lang="kk">Зертхана</h3><p lang="ru">Зеркала, делители, порталы и цветные фильтры. Здесь всё начинается.</p><p lang="en">Mirrors, splitters, portals and colour filters. This is where it all begins.</p><p lang="kk">Айналар, бөлгіштер, порталдар және түсті сүзгілер. Бәрі осыдан басталады.</p></div></div>
+<div class="world space rv"><img lang="ru" src="/img/ls-ru-3_space.webp" alt="" loading="lazy"><img lang="en" src="/img/ls-en-3_space.webp" alt="" loading="lazy"><img lang="kk" src="/img/ls-ru-3_space.webp" alt="" loading="lazy"><div><h3 lang="ru">Космос</h3><h3 lang="en">Space</h3><h3 lang="kk">Ғарыш</h3><p lang="ru">Луч летит клетка за клеткой, а астероиды так и норовят его разбить.</p><p lang="en">The pulse flies cell by cell, and asteroids keep trying to break it.</p><p lang="kk">Сәуле ұяшықтан ұяшыққа ұшады, ал астероидтар оны сындыруға тырысады.</p></div></div>
+<div class="world ocean rv"><img lang="ru" src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"><img lang="en" src="/img/ls-en-4_ocean.webp" alt="" loading="lazy"><img lang="kk" src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"><div><h3 lang="ru">Океан</h3><h3 lang="en">The Ocean</h3><h3 lang="kk">Мұхит</h3><p lang="ru">Призма делит белый луч на три цвета, а вертушки крутятся сами по себе.</p><p lang="en">A prism splits white light into three colours, and spinners turn on their own.</p><p lang="kk">Призма ақ сәулені үш түске бөледі, ал айналмалар өздігінен бұрылады.</p></div></div>
+</div></section>
+
+<section><div class="sh rv"><h2 lang="ru">Скриншоты</h2><h2 lang="en">Screenshots</h2><h2 lang="kk">Скриншоттар</h2></div>
+<div class="gallery" lang="ru"><img src="/img/ls-ru-1_home.webp" alt="" loading="lazy"><img src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"><img src="/img/ls-ru-3_space.webp" alt="" loading="lazy"><img src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"><img src="/img/ls-ru-5_spinner.webp" alt="" loading="lazy"><img src="/img/ls-ru-8_daily.webp" alt="" loading="lazy"></div><div class="gallery" lang="en"><img src="/img/ls-en-1_home.webp" alt="" loading="lazy"><img src="/img/ls-en-2_lab.webp" alt="" loading="lazy"><img src="/img/ls-en-3_space.webp" alt="" loading="lazy"><img src="/img/ls-en-4_ocean.webp" alt="" loading="lazy"><img src="/img/ls-en-5_spinner.webp" alt="" loading="lazy"><img src="/img/ls-en-8_daily.webp" alt="" loading="lazy"></div><div class="gallery" lang="kk"><img src="/img/ls-ru-1_home.webp" alt="" loading="lazy"><img src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"><img src="/img/ls-ru-3_space.webp" alt="" loading="lazy"><img src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"><img src="/img/ls-ru-5_spinner.webp" alt="" loading="lazy"><img src="/img/ls-ru-8_daily.webp" alt="" loading="lazy"></div>
 </section>
-<section><h2><span lang="ru">Скриншоты</span><span lang="en">Screenshots</span><span lang="kk">Скриншоттар</span></h2>
-<div class="shots" lang="ru"><img src="/img/ls-ru-1_home.webp" alt="Главный экран" loading="lazy"><img src="/img/ls-ru-2_lab.webp" alt="Лаборатория" loading="lazy"><img src="/img/ls-ru-3_space.webp" alt="Космос" loading="lazy"><img src="/img/ls-ru-4_ocean.webp" alt="Океан" loading="lazy"><img src="/img/ls-ru-5_spinner.webp" alt="Вертушка" loading="lazy"><img src="/img/ls-ru-8_daily.webp" alt="Испытание дня" loading="lazy"></div>
-<div class="shots" lang="en"><img src="/img/ls-en-1_home.webp" alt="Home screen" loading="lazy"><img src="/img/ls-en-2_lab.webp" alt="Laboratory" loading="lazy"><img src="/img/ls-en-3_space.webp" alt="Space" loading="lazy"><img src="/img/ls-en-4_ocean.webp" alt="Ocean" loading="lazy"><img src="/img/ls-en-5_spinner.webp" alt="Spinner" loading="lazy"><img src="/img/ls-en-8_daily.webp" alt="Daily challenge" loading="lazy"></div>
-<div class="shots" lang="kk"><img src="/img/ls-ru-2_lab.webp" alt="" loading="lazy"><img src="/img/ls-ru-3_space.webp" alt="" loading="lazy"><img src="/img/ls-ru-4_ocean.webp" alt="" loading="lazy"><img src="/img/ls-ru-5_spinner.webp" alt="" loading="lazy"></div>
-</section>
-<section><h2><span lang="ru">Коротко</span><span lang="en">At a glance</span><span lang="kk">Қысқаша</span></h2>
-<ul class="facts" lang="ru"><li>1016 уровней: Лёгкий, Норм, Хардкор, Свобода и Испытание дня.</li><li>Все уровни бесплатные и играются без интернета.</li><li>Реклама только по желанию: видео за подсказку, не больше трёх в день.</li><li>Языки: қазақша, русский, English.</li></ul>
-<ul class="facts" lang="en"><li>1016 levels: Easy, Normal, Hardcore, Free and a Daily challenge.</li><li>All levels are free and play offline.</li><li>Ads only if you want them: a video for a hint, up to three a day.</li><li>Languages: Kazakh, Russian, English.</li></ul>
-<ul class="facts" lang="kk"><li>1016 деңгей: Жеңіл, Қалыпты, Хардкор, Еркін және Күн сынағы.</li><li>Барлық деңгейлер тегін және интернетсіз ойналады.</li><li>Жарнама тек қалауың бойынша: кеңес үшін бейне, күніне үштен көп емес.</li><li>Тілдер: қазақша, русский, English.</li></ul>
+
+<section><div class="sh rv"><h2 lang="ru">Коротко</h2><h2 lang="en">At a glance</h2><h2 lang="kk">Қысқаша</h2></div>
+<div class="facts">
+<div class="fact rv"><b>1016</b><span lang="ru">уровней: Лёгкий, Норм, Хардкор и Свобода</span><span lang="en">levels: Easy, Normal, Hardcore and Free</span><span lang="kk">деңгей: Жеңіл, Қалыпты, Хардкор және Еркін</span></div>
+<div class="fact rv"><b><span lang="ru">Каждый день</span><span lang="en">Every day</span><span lang="kk">Күн сайын</span></b><span lang="ru">новое испытание и задания</span><span lang="en">a new challenge and daily tasks</span><span lang="kk">жаңа сынақ пен тапсырмалар</span></div>
+<div class="fact rv"><b><span lang="ru">Оффлайн</span><span lang="en">Offline</span><span lang="kk">Офлайн</span></b><span lang="ru">все уровни бесплатные и играются без интернета</span><span lang="en">every level is free and plays without internet</span><span lang="kk">барлық деңгей тегін, интернетсіз ойналады</span></div>
+<div class="fact rv"><b><span lang="ru">По желанию</span><span lang="en">Your choice</span><span lang="kk">Қалауыңша</span></b><span lang="ru">реклама только за подсказку, когда сам захочешь</span><span lang="en">ads only for a hint, when you want one</span><span lang="kk">жарнама тек кеңес үшін, өзің қалағанда</span></div>
+</div>
 <p><a href="/privacy/laserscape.html"><span lang="ru">Политика конфиденциальности</span><span lang="en">Privacy policy</span><span lang="kk">Құпиялылық саясаты</span></a></p>
 </section>
-</main><footer><div class="wrap"><span>© 2026 Ninja Developers</span>
-<span lang="ru">Сделано в Казахстане</span><span lang="en">Made in Kazakhstan</span><span lang="kk">Қазақстанда жасалған</span>
-<a href="mailto:ninjutsudevelopers@gmail.com">ninjutsudevelopers@gmail.com</a>
+</main>
+<footer><div class="wrap"><a class="brand" href="/"><svg viewBox="0 0 120 120" class="ninja" aria-hidden="true"><circle cx="60" cy="60" r="44" class="nh"/><path d="M18 52h84v20H18z" class="nb"/><path d="M98 58l18-10M98 66l20 4" class="nt"/><g class="eyes"><path d="M38 62l12-4M70 58l12 4" class="ne"/></g></svg><span>NINJA DEVELOPERS</span></a>
+<span>© 2026 Ninja Developers · <span lang="ru">Сделано в Казахстане</span><span lang="en">Made in Kazakhstan</span><span lang="kk">Қазақстанда жасалған</span></span>
+<span class="links"><a href="mailto:ninjutsudevelopers@gmail.com">ninjutsudevelopers@gmail.com</a>
 <a href="/privacy/laserscape.html"><span lang="ru">Политика LaserScape</span><span lang="en">LaserScape privacy</span><span lang="kk">LaserScape құпиялылығы</span></a>
-<a href="/privacy/waterscape.html"><span lang="ru">Политика WaterScape</span><span lang="en">WaterScape privacy</span><span lang="kk">WaterScape құпиялылығы</span></a>
+<a href="/privacy/waterscape.html"><span lang="ru">Политика WaterScape</span><span lang="en">WaterScape privacy</span><span lang="kk">WaterScape құпиялылығы</span></a></span>
 </div></footer><script src="/site.js"></script>
 </body></html>
