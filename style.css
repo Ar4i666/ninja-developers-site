@@ -261,6 +261,16 @@ footer a{color:var(--dim);text-decoration:none}footer a:hover{color:var(--fg)}
 @keyframes sweep{0%,100%{transform:translateY(-120px) scaleX(.3);opacity:0}30%,70%{opacity:1;transform:translateY(0) scaleX(1)}}
 .game.water .bub{bottom:-20px}
 
+/* Ninja Hunter card on the home page: blood moon glow, bats, pixel title */
+.game.hunter{--c:#e0455f;background:linear-gradient(140deg,#24101a 0%,var(--panel) 60%);border-color:#4a2032}
+.game.hunter::after{width:22rem;height:22rem;right:4%;top:-6rem;background:radial-gradient(circle at 40% 40%,rgba(255,154,138,.35),rgba(224,69,95,.28) 40%,rgba(155,27,48,.15) 60%,transparent 72%)}
+.game.hunter h3{font-family:'Tiny5',var(--display);font-weight:400;font-size:clamp(1.8rem,3.6vw,2.4rem);letter-spacing:.02em}
+.game.hunter .title img{border-radius:14px;background:#0a0610}
+.game.hunter .phones{overflow:visible}
+.game.hunter .phone{border-radius:18px;border-color:#3a2440}.game.hunter .phone img{border-radius:12px;object-position:50% 30%}
+.game.hunter .phone.p2{box-shadow:0 30px 70px -18px rgba(0,0,0,.9),0 0 50px -12px #e0455f}
+.game.hunter .bat{z-index:4}
+
 /* language switch: elements carry lang="ru|en|kk"; only the chosen one shows */
 html[data-l=ru] [lang=en]:not(html),html[data-l=ru] [lang=kk]:not(html),
 html[data-l=en] [lang=ru]:not(html),html[data-l=en] [lang=kk]:not(html),
