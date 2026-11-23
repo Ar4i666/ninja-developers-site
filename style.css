@@ -291,3 +291,8 @@ html[data-l=kk] [lang=ru]:not(html),html[data-l=kk] [lang=en]:not(html){display:
 @media (max-width:560px){nav.top .hide-s{display:none}.values{grid-template-columns:1fr}.brand span{display:none}}
 @media (max-width:860px){.mood{height:640px}.beam{opacity:.45}.g-game .hero{min-height:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+
+/* Trailer block on game pages: one vertical video per language */
+.trailer{display:flex;justify-content:flex-start}
+.trailer video{width:min(360px,100%);aspect-ratio:9/16;border-radius:24px;border:1px solid var(--line);background:#000;box-shadow:0 24px 70px -24px var(--c,#000);display:block}
+.g-hunter .trailer video{border-radius:12px}
