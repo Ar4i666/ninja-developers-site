@@ -292,7 +292,18 @@ html[data-l=kk] [lang=ru]:not(html),html[data-l=kk] [lang=en]:not(html){display:
 @media (max-width:860px){.mood{height:640px}.beam{opacity:.45}.g-game .hero{min-height:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
 
-/* Trailer block on game pages: one vertical video per language */
-.trailer{display:flex;justify-content:flex-start}
-.trailer video{width:min(360px,100%);aspect-ratio:9/16;border-radius:24px;border:1px solid var(--line);background:#000;box-shadow:0 24px 70px -24px var(--c,#000);display:block}
-.g-hunter .trailer video{border-radius:12px}
+
+/* Trailer inside the middle phone of a game page hero: tap to play */
+.phone[data-trailer]{cursor:pointer;transition:transform .35s ease}
+.phone[data-trailer] .tplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;display:grid;justify-items:center;gap:10px;border:0;background:none;color:#fff;font:700 13px/1.2 var(--body,inherit);cursor:pointer;text-shadow:0 2px 8px #000}
+.phone[data-trailer] .tplay svg{width:64px;height:64px;padding:16px 14px 16px 18px;border-radius:50%;background:var(--c,#5cf);color:#06121a;box-shadow:0 0 0 8px rgba(255,255,255,.12),0 0 40px var(--c,#5cf);animation:tpulse 2s ease-in-out infinite}
+.phone[data-trailer] .tplay span{background:rgba(0,0,0,.55);padding:5px 10px;border-radius:99px;white-space:nowrap}
+.phone[data-trailer]::after{content:"";position:absolute;inset:7px;border-radius:22px;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45));z-index:2;pointer-events:none}
+.phone.playing::after,.phone.playing .tplay{display:none}
+.phone[data-trailer] video{position:absolute;inset:7px;width:calc(100% - 14px);height:calc(100% - 14px);object-fit:cover;border-radius:22px;background:#000;z-index:4}
+.g-hunter .phone[data-trailer] video,.g-hunter .phone[data-trailer]::after{border-radius:12px}
+.g-hunter .phone[data-trailer] .tplay svg{border-radius:10px;color:#fff}
+.phone.p2.playing{transform:translate(-50%,-50%) scale(1.12);z-index:5}
+@keyframes tpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@media (max-width:720px){.phone.p2.playing{transform:translate(-50%,-50%) scale(1.3)}}
+@media (prefers-reduced-motion:reduce){.phone[data-trailer] .tplay svg{animation:none}}

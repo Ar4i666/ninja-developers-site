@@ -18,5 +18,17 @@
   els.forEach(function(e){io.observe(e)});
 })();
 
-// Pause a trailer when the language switch hides it.
-document.addEventListener('click',function(e){if(e.target.closest('.langs button'))document.querySelectorAll('.trailer video').forEach(function(v){if(!v.offsetParent)v.pause()})});
+// Trailer inside the hero phone: tap the middle phone to play it there, in the site language.
+(function(){
+  function stop(){document.querySelectorAll('.phone.playing').forEach(function(p){var v=p.querySelector('video');if(v){v.pause();v.remove()}p.classList.remove('playing')})}
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.langs button')){stop();return}
+    var ph=e.target.closest('.phone[data-trailer]');if(!ph||ph.querySelector('video'))return;
+    var l=document.documentElement.getAttribute('data-l')||'ru';
+    var v=document.createElement('video');
+    v.src='/video/'+ph.dataset.trailer+'-'+l+'.mp4';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');
+    v.addEventListener('ended',stop);
+    ph.appendChild(v);ph.classList.add('playing');
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  });
+})();
