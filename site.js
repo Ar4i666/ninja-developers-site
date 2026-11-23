@@ -17,3 +17,6 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
 })();
+
+// Pause a trailer when the language switch hides it.
+document.addEventListener('click',function(e){if(e.target.closest('.langs button'))document.querySelectorAll('.trailer video').forEach(function(v){if(!v.offsetParent)v.pause()})});
